@@ -1,0 +1,57 @@
+.navbar{
+    height: 80px;
+    margin: auto;
+    .wrapper{
+        padding: 10px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .item{//we are writing it here cuz we want it to apply in both left n right
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+        }
+        .left{
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .center{
+           font-size: 30px;
+           letter-spacing: 4px;           ;
+        }
+        .right{
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            .icons{
+               display: flex;
+               gap: 15px;
+               color: #777;
+               cursor: pointer;
+               .cart{
+                position: relative;
+                span{
+                    font-size: 12px;
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 50%;
+                    background-color: #2879feef;
+                    color: white;
+                    position: absolute;
+                    right: -8px;
+                    top: -8px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: 600;
+                    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                }
+               }
+            }
+            .cart{
+                display: inline-block;
+            }
+        }
+    }
+}

@@ -9,6 +9,7 @@ import Product from "./pages/Product/Product";
 import Error from "./pages/Error/Error";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import "./app.scss";
 const Layout = () => {
   return (
     <div className="app">
