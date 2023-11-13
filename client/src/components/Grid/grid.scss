@@ -1,0 +1,67 @@
+.grid{
+    margin: 20px;
+    height: 510px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    div{
+        border-radius: 5px;
+        background-color: rgb(176, 176, 176);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        &:hover{
+            transform: scale(1.1);
+        }
+        button{
+            padding: 8px 16px;
+            border-radius: 3px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 500;
+            background-color: white;
+            transition: all 0.3s ease;
+            &:hover{
+                background-color: #00296a;
+                color: white;
+            }
+        }
+    }
+    .item1{
+        background-image: url('https://images.pexels.com/photos/2899937/pexels-photo-2899937.jpeg?auto=compress&cs=tinysrgb&w=1260');
+        order: 1;
+        grid-area: 1 / 1 / 1 / 1;
+    }
+    .item2{
+        background-image: url('https://images.pexels.com/photos/5325599/pexels-photo-5325599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        height: 100%;
+        order: 2;
+        grid-row: 1/3;
+        
+    }
+    .item3{
+        background-image: url('https://images.pexels.com/photos/1018911/pexels-photo-1018911.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        order: 3;
+    }
+    .item4{
+        background-image: url('https://images.pexels.com/photos/264591/pexels-photo-264591.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        order: 4;
+    }
+    .item5{
+        background-image: url('https://images.pexels.com/photos/2085118/pexels-photo-2085118.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        order: 5;
+    }
+    .item6{
+        background-image: url('https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=600');
+        order: 6;
+        grid-column: 3/5;
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
+}

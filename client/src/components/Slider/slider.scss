@@ -1,0 +1,43 @@
+.slider{
+    height: calc(100vh - 80px);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    .container{
+        width: 300vw;
+        display: flex;
+        height: 100%;
+        transition: transform 0.8s ease;
+        img{
+            width: 100vw;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .icons{
+        width: max-content;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 5%;
+        margin: auto;
+        display: flex;
+        gap: 40px;
+        .icon{
+            border: 1px solid #3b3b3b;
+            border-radius: 5px;
+            padding: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .icon:hover{
+            background-color: #00378fce;
+            border: 1px solid #00245fef;
+            color: white;
+        }
+        .icon *{
+            font-size: 35px;
+            color: inherit;
+        }
+    }
+}

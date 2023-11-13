@@ -1,8 +1,9 @@
 .navbar{
     height: 80px;
     margin: auto;
-    .wrapper{
-        padding: 10px 30px;
+    .wrapper{    
+        height: 100%;
+        padding: 0px 30px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -36,7 +37,7 @@
                     width: 16px;
                     height: 16px;
                     border-radius: 50%;
-                    background-color: #2879feef;
+                    background-color: #002d76ef;
                     color: white;
                     position: absolute;
                     right: -8px;
