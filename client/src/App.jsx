@@ -10,6 +10,7 @@ import Error from "./pages/Error/Error";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import "./app.scss";
+import Contact from "./pages/Contact/Contact";
 const Layout = () => {
   return (
     <div className="app">
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <Product />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       //for 404 page (any undefined route)
       {
