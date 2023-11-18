@@ -1,18 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./navbar.scss";
 import Cart from "../Cart/Cart";
 
 const Navbar = () => {
   const [open,setOpen]=useState(false)
-
+  const [cusNav,setCusNav]=useState(false)
+  const location = useLocation();
+  useEffect(() => {
+    // Check if the current route is "/about" and update the state accordingly
+    setCusNav(location.pathname === "/about");
+  }, [location.pathname]);
+  const additionalClass = cusNav ? "navbarabout" : "navbar";
   return (
-    <div className="navbar">
+    <div className={additionalClass}>
       <div className="wrapper">
         <div className="left">
           <div className="item">
@@ -34,17 +40,17 @@ const Navbar = () => {
         </div>
         <div className="right">
           <div className="item">
-            <Link className='link' to="/">About</Link>
+            <Link className='link' to="/about">About</Link>
           </div>
           <div className="item">
             <Link className='link' to="/contact">Contact</Link>
           </div>
           <div className="item">
-            <Link className='link' to="/">Stores</Link>
+            <Link className='link' to="/stores">Stores</Link>
           </div>
           <div className="icons">
             <SearchIcon/>
-            <PersonOutlineIcon/>
+            <Link className='link' to="/auth/signup"><PersonOutlineIcon/></Link>
             <FavoriteBorderIcon/>
             <div className="cart" onClick={()=>setOpen(!open)}>
             <ShoppingCartIcon/>

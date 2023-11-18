@@ -11,6 +11,10 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import "./app.scss";
 import Contact from "./pages/Contact/Contact";
+import About from "./pages/About/About";
+import Auth from "./pages/Auth/Auth";
+import Stores from "./pages/Stores/Stores";
+
 const Layout = () => {
   return (
     <div className="app">
@@ -42,6 +46,18 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/auth/:state",
+        element: <Auth/>,
+      },
+      {
+        path: "/stores",
+        element: <Stores/>,
       },
       //for 404 page (any undefined route)
       {
