@@ -7,10 +7,12 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link, useLocation } from "react-router-dom";
 import "./navbar.scss";
 import Cart from "../Cart/Cart";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [open,setOpen]=useState(false)
   const [cusNav,setCusNav]=useState(false)
+  const products = useSelector(state => state.cart.products)
   const location = useLocation();
   useEffect(() => {
     // Check if the current route is "/about" and update the state accordingly
@@ -54,7 +56,7 @@ const Navbar = () => {
             <FavoriteBorderIcon/>
             <div className="cart" onClick={()=>setOpen(!open)}>
             <ShoppingCartIcon/>
-            <span>0</span>
+            <span>{products.length}</span>
             </div>
           </div>
         </div>
