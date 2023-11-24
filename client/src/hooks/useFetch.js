@@ -15,7 +15,6 @@ const useFetch = /**async dont use async here, cuz theres already one*/ (url) =>
               },
             });
             setData(res.data.data);
-            console.log(res.data.data);
           }catch(err){
             console.log(err);
             setErr(true);

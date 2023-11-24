@@ -2,9 +2,6 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './card.scss'
 const Card = ({item}) => {
-  useEffect(() => {
-    console.log(item);
-  });
   return (
     <Link className='link' to={`/product/${item.id}`}>
     <div className='card'>

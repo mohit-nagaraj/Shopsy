@@ -2,35 +2,36 @@ import React, { useState } from 'react'
 import './products.scss'
 import List from '../../components/List/List'
 import { useParams } from 'react-router-dom'
+import useFetch from '../../hooks/useFetch'
 const Products = () => {
   
   const cId= parseInt(useParams().id)
-  const [maxPrice, setMaxPrice] = useState(1000)
+  const [maxPrice, setMaxPrice] = useState(8000)
   const [sort, setSort] = useState('pop')
+  const [selSubCat, setSelSubCat] = useState([])
 
+  const {data,loading,error}=useFetch(`http://localhost:1337/api/sub-categories?filters[categories][id][$eq]=${cId}`)//in a particular category(like men,women,etc) getting and filtering subcategories
+  const handleChange=(e)=>{
+    const value=parseInt(e.target.value);
+    const checked=e.target.checked;  
+    setSelSubCat(checked? [...selSubCat,value]:selSubCat.filter(e=>e!==value));
+  }
+  
   return (
     <div className='products'>
       <div className="left">
         <div className="filterItem">
           <h2>Categories</h2>
-          <div className="inputItem">
-            <input type="checkbox" id="1"  value={1}/>
-            <label htmlFor="1">Shoes</label>
-          </div>
-          <div className="inputItem">
-            <input type="checkbox" id="2"  value={2}/>
-            <label htmlFor="2">Shirts</label>
-          </div>
-          <div className="inputItem">
-            <input type="checkbox" id="3"  value={3}/>
-            <label htmlFor="3">Coats</label>
-          </div>
+          {data?.map(e=><div className="inputItem" key={e.id}>
+            <input type="checkbox" id={e.id}  value={e.id} onChange={handleChange}/>
+            <label htmlFor={e.id}>{e.attributes.title}</label>
+          </div>)}
         </div>
         <div className="filterItem">
           <h2>Price Range</h2>
           <span>0</span>
-          <input type="range" min={0} max={1000} defaultValue={800} onChange={e=>setMaxPrice(e.target.value)} style={{accentColor:"#002d76",color:"#002d76"}}/>
-          <span>1000</span>
+          <input type="range" min={0} max={8000} defaultValue={8000} onChange={e=>setMaxPrice(e.target.value)} style={{accentColor:"#002d76",color:"#002d76"}}/>
+          <span>{maxPrice}</span>
         </div>
         <div className="filterItem">
           <h2>Sort by</h2>
@@ -49,8 +50,8 @@ const Products = () => {
         </div>
       </div>
       <div className="right">
-        <img className='catImg' src="https://images.pexels.com/photos/1074535/pexels-photo-1074535.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
-        <List cId={cId} maxPrice={maxPrice} sort={sort}/>
+        <img className='catImg' src="https://source.unsplash.com/random/1600x300/?nature,night" alt="" />
+        <List cId={cId} maxPrice={maxPrice} sort={sort} selSubCat={selSubCat}/>
       </div>
     </div>
   )
